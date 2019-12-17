@@ -1,19 +1,22 @@
 import React from "react";
-import {Route,  BrowserRouter as Router } from "react-router-dom"
+import { Route } from"react-router-dom";
 
-import Header from "./components/Header";
+import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList";
-import WelcomePage from './components/WelcomePage'
-
+import WelcomePage from "./components/WelcomePage";
+import SearchForm from "./components/SearchForm";
 
 export default function App() {
+
   return (
-    <Router>
-    <main>
+    <div>
       <Header />
-      <Route exact path="/" component={WelcomePage} />
-      <Route path="/characters" component={CharacterList} />
-    </main>
-    </Router>
+      
+      <Route exact path ="/" component={WelcomePage}/>
+      <Route path="/Search" component={SearchForm}/>
+      <Route path="/Characters" component={CharacterList}/> 
+
+      <CharacterList />
+    </div>
   );
 }

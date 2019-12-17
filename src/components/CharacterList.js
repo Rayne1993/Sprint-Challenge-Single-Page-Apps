@@ -1,43 +1,44 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import {Link} from "react-router-dom";
+import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
-import SearchForm from "./SearchForm";
+
+const B = styled.button`
+  margin-left: 24.5%;
+  margin-top: 5px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: aqua;
+`
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
-  const [char, setChar] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-
-  const search = charArr => {
-    setFiltered(charArr)
-  };
-
+  const [character, setCharacter] = useState([]);
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-          axios.get("https://rickandmortyapi.com/api/character/")
-          .then((res) => {
-            setChar(res.data.results);
-            setFiltered(res.data.results);
-            console.log(res.data.results);
-          })
-          .catch(err => {
-            console.log("error", err);
-          });
-      }, []);
+    axios
+    .get('https://rickandmortyapi.com/api/character/')
+    .then((response) => {
+      setCharacter(response.data.results);
+      console.log(response);
+    })
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+}, []);
 
   return (
     <section className="character-list">
-      <h2>Character List</h2>
-      <Link className="main-buttons" to={"/"}>
-        Home
-      </Link>
-      <SearchForm search={search} characters={char} />
-      {filtered.map(data => {
-        return <CharacterCard key={data.id} character={data} />;
-      })}
+       <Link to= "/"><B>Home</B></Link>
+       <Link to="/Search"><B>Search
+        </B>
+          </Link>
+            {character.map(props => (
+            <CharacterCard  key={props.id} name={props.name}
+            species={props.species} status={props.status}/>
+        ))}
     </section>
   );
-}
+} 
