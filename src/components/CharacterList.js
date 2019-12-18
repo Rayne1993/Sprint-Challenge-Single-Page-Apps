@@ -6,9 +6,9 @@ import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
 const B = styled.button`
-  margin-left: 24.5%;
-  margin-top: 5px;
-  width: 100px;
+  display: block;
+  margin: 10px auto;
+  width: 35%;
   padding: 10px;
   border-radius: 10px;
   background-color: black;

@@ -8,7 +8,7 @@ const Buttons = styles.button`
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 10px;
   background-color: black;
   color: aqua;
   border-radius: 10px;
@@ -21,7 +21,8 @@ const Page = styles.section`
 `
 
 const Img = styles.img`
-  margin-left: 30%;
+  display: block;
+  margin: 0 auto;
 `
 
 export default function WelcomePage() {

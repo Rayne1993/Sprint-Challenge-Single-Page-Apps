@@ -7,18 +7,20 @@ import CharacterCard from "./CharacterCard";
 
 const Search = styled.input`
   width: 50%;
-  margin-left: 24.6%;
+  display: block;
+  margin: 0 auto;
   margin-bottom: 10px;
 `
 
 const B = styled.button`
+  display: block;
+  margin: 0 auto;
   border-radius: 10px;
   background-color: black;
   color: aqua;
   padding: 5px;
-  margin-left: 43%;
   margin-bottom: 10px;
-  width: 100px;
+  width: 35%;
 `
 
 const End = styled.p`
